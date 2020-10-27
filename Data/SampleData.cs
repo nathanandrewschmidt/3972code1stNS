@@ -18,14 +18,14 @@ namespace nsCode1st.Data
                 context.Database.EnsureCreated();
 
                 // Look for any provinces.
-                if (context.Cities.Any())
+                if (context.Provinces.Any())
                 {
                     return; // DB has already been seeded
                 }
 
-                //var provinces = GetProvinces().ToArray();
-                //context.Provinces.AddRange(provinces);
-                //context.SaveChanges();
+                var provinces = GetProvinces().ToArray();
+                context.Provinces.AddRange(provinces);
+                context.SaveChanges();
 
                 var cities = GetCities(context).ToArray();
                 context.Cities.AddRange(cities);
